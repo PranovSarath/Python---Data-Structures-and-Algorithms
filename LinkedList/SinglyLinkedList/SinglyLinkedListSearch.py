@@ -44,6 +44,31 @@ class SLinkedList:
                 #if given location is the last node
                 if tempNode == self.tail:
                     self.tail = newNode
+        
+
+    #Traverse Singly Linked List
+    def traverseSLL(self):
+        if self.head is None:           #+++++++> O(1)
+            print('The Singly Linked List does not exist')
+        else:
+            tempNode = self.head #+++++++++++++> O(1)
+            while tempNode is not None:
+                print(tempNode.value) #++++++++++> O(n)
+                tempNode = tempNode.next
+
+
+    #Searching for a value in Singly Linked List
+    def searchSLL(self, searchValue):
+        if self.head is None:   #+++++++++++++> O(1)
+            print("The SLL does not exist")
+        else:
+            tempNode = self.head
+            while tempNode is not None: #+++++++++++++> O(1)
+                if tempNode.value == searchValue: #+++++++> O(n)
+                    return tempNode.value
+                tempNode = tempNode.next #++++++++++> O(1)
+            return "The value does not exist in this list"
+    
 
 
 
@@ -60,3 +85,6 @@ print([node.value for node in singlyLinkedList])
 singlyLinkedList.insertToSLL(3,2)
 
 print([node.value for node in singlyLinkedList])
+
+singlyLinkedList.traverseSLL()
+print(singlyLinkedList.searchSLL(10))

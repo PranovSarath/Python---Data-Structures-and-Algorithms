@@ -44,8 +44,52 @@ class SLinkedList:
                 #if given location is the last node
                 if tempNode == self.tail:
                     self.tail = newNode
+        
 
+    #Traverse Singly Linked List
+    def traverseSLL(self):
+        if self.head is None:           #+++++++> O(1)
+            print('The Singly Linked List does not exist')
+        else:
+            tempNode = self.head #+++++++++++++> O(1)
+            while tempNode is not None:
+                print(tempNode.value) #++++++++++> O(n)
+                tempNode = tempNode.next
 
+    #Delete node
+    def deleteNode(self, location):
+        if self.head is None:     #+++++++++> O(1)
+            print("The SLL does not exist")
+        else:
+            #Delete the first node
+            if location == 0:
+                if self.head == self.tail:
+                    self.head = None #+++++++++> O(1)
+                    self.tail = None
+                else:
+                    self.head = self.head.next
+            elif location == -1:
+                if self.head == self.tail: #+++++++++> O(1)
+                    self.head = None
+                    self.tail = None
+                else:
+                    node = self.head
+                    while node is not None:
+                        if node.next == self.tail: #+++++++> O(n)
+                            break
+                        node = node.next
+                    node.next = None
+                    self.tail = node
+            else:
+                tempNode = self.head
+                index = 0
+                while index < location -1:
+                    tempNode = tempNode.next #+++++++> O(n)
+                    index += 1
+                nextNode = tempNode.next
+                tempNode.next = nextNode.next
+
+            
 
 
 singlyLinkedList = SLinkedList()
@@ -59,4 +103,9 @@ singlyLinkedList.insertToSLL(-80,-1)
 print([node.value for node in singlyLinkedList])
 singlyLinkedList.insertToSLL(3,2)
 
+print([node.value for node in singlyLinkedList])
+
+singlyLinkedList.traverseSLL()
+
+singlyLinkedList.deleteNode(3)
 print([node.value for node in singlyLinkedList])
