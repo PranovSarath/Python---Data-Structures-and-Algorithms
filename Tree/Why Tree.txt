@@ -1,0 +1,11 @@
+Why we need tree data structure?
+
+1) Tree Data Structures allow easier and quicker access
+to data as it is a non-linear data Structures
+
+2) It allows to store heirarchical information
+like folder structure, organization structure, XML/HTML data
+
+3) There are different types of trees that allows for
+specific use cases. Like Binary Search Tree, self balancing
+trees like AVL, Red Black Tree, Trie
